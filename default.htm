@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	
+    <title>使用vLive上微博，精彩消息不错过！</title>
+	<meta name="keywords" content="实时,最新,微博,消息,vLive"/>
+	<meta name="description" content="使用vLive上微博，精彩消息不错过！"/>
+
+	<link type="text/css" href="styles/jquery.ui.all.css" rel="stylesheet" />
+	<link type="text/css" href="styles/monitor.css" rel="stylesheet" />
+	
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-25602501-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
+</head>
+
+<body>
+	<script type="text/javascript" src="http://js.wcdn.cn/t3/platform/js/api/wb.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	var appkey = "3782618971";
+	var xdPath = "http://vlive.co/xd.html";
+	
+	WB.core.load(['connect', 'client'], function() {
+		var cfg = {
+			key: appkey,
+			xdpath: xdPath
+		};
+		WB.connect.init(cfg);
+		WB.client.init(cfg);
+	});
+	
+	document.execCommand("BackgroundImageCache",false,true);
+	</script>
+	<script type="text/javascript" src="scripts/jquery-1.5.1.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.mouse.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.button.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.draggable.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.dialog.js"></script>
+    <script type="text/javascript" src="scripts/monitor.js"></script>
+	
+	<div class="headarea">
+		<div class="findarea">
+			<span class="logo"><img class="logo" src="styles/images/logo_small.png" title="vLive" pop="true"/></span>
+			<span class="keyword">关键字:</span>
+			<input type="text" id="textKeyword"/ onkeypress="monitor.textKeyword_onkeypress(event)">
+			<input type="button" id="buttonAddMonitor" value="添加" onclick="monitor.AddColumn()"/>
+		</div>
+		<div class="menuarea">
+			<a class="login_button" href="javascript:void(0)" title="登录" onclick="Monitor.login(); return false;"></a>
+			<a class="menu_item" href="mailto:vlivehost@gmail.com">联系我们</a>
+		</div>
+	</div>
+	
+	<div class="both" id="itemManager">
+
+	</div>
+	
+	<div class="description" id="userGuide">
+	<h2>欢迎使用vLive！</h2>
+	<p>vLive是一款基于新浪微博的第三方应用。使用vLive，您可以按关键字实时跟踪最新的微博消息</p>
+	<p>用法：在左上角的输入框中输入您想要查看的关键字，然后点“添加”</p>
+	</div>
+	
+    <div id="dialog-message" title="消息" style="display:none">
+	<p>
+		<div id="message-content"></div>
+	</p>
+	<p>
+		<textarea id="message-forward-content" style="width:90%; height:100px"></textarea>
+	</p>
+	</div>
+	
+	<div id="dialog-confirm" style="display:none">
+	<p>
+		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+		<div id="confirm-content"></div>
+	</p>
+	</div>
+	
+	<script type="text/javascript">
+	$("#textKeyword")[0].focus();
+	</script>
+</body>
+</html>
